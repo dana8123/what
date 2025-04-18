@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>사냥 안갈거야</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://source.unsplash.com/1600x900/?forest,night'); /* 원하는 배경 이미지 URL로 바꿔도 돼 */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: white;
+      font-family: 'Pretendard', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .input-box {
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .message {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+      font-size: 1.5rem;
+      line-height: 1.8;
+      white-space: pre-line;
+      background-color: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 100%;
+      width: 700px;
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      background-image: url('https://z3jthve4bkohcnhi.public.blob.vercel-storage.com/bg-ku1pwO6jhmGZx8aN4Dl86qoQS1Lz1x.jpeg');
+    }
+
+    .message.show {
+      opacity: 1;
+    }
+
+    .save-btn {
+      margin-top: 20px;
+      background: #222;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="input-box">
+    <input type="text" id="userInput" placeholder="뭐라고 했지?" />
+    <button onclick="showMessage()">확인</button>
+  </div>
+
+  <div class="message" id="messageBox"></div>
+
+  <button class="save-btn" onclick="saveAsImage()">저장하기</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    function showMessage() {
+      const input = document.getElementById("userInput").value.trim();
+      const box = document.getElementById("messageBox");
+
+      if (input === "") {
+        box.textContent = "오늘 뭐 해야된다고...?";
+      } else {
+        box.textContent = `${input}? 무슨소리야...?\n오늘 사냥 안갈거야?`;
+      }
+
+      box.classList.add("show");
+    }
+
+    function saveAsImage() {
+        const box = document.getElementById("messageBox");
+        if (!box.classList.contains("show")) return alert("먼저 대사를 생성해주세요!");
+        
+        html2canvas(box,{
+            useCORS: true,
+        }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "사냥_거부기.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>
