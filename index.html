@@ -34,7 +34,7 @@
     .message {
       opacity: 0;
       transition: opacity 1s ease-in;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       line-height: 1.8;
       white-space: pre-line;
       background-color: rgba(0,0,0,0.6);
@@ -46,6 +46,12 @@
       background-size: cover;
       background-position: center;
       background-image: url('https://z3jthve4bkohcnhi.public.blob.vercel-storage.com/bg-ku1pwO6jhmGZx8aN4Dl86qoQS1Lz1x.jpeg');
+      padding-top: 50px;
+      text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.7),  /* 오른쪽 아래 그림자 */
+        -2px -2px 4px rgba(0, 0, 0, 0.7), /* 왼쪽 위 그림자 */
+        2px -2px 4px rgba(0, 0, 0, 0.7),  /* 오른쪽 위 그림자 */
+        -2px 2px 4px rgba(0, 0, 0, 0.7);  /* 왼쪽 아래 그림자 */
     }
 
     .message.show {
@@ -79,7 +85,7 @@
       if (input === "") {
         box.textContent = "오늘 뭐 해야된다고...?";
       } else {
-        box.textContent = `${input}? 무슨소리야...?\n오늘 사냥 안갈거야?`;
+        box.textContent = `${input}? 무슨소리를 하는거야,\n 너 꿈꿨니?\n오늘 사냥 안갈거야?`;
       }
 
       box.classList.add("show");
