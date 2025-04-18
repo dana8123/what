@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7678227109046807"
+    crossorigin="anonymous"></script>  
   <meta charset="UTF-8" />
   <title>사냥 안갈거야</title>
   <style>
@@ -76,6 +79,19 @@
 
   <button class="save-btn" onclick="saveAsImage()">저장하기</button>
 
+  <div class="adsense-ad">
+    <!-- 구글 애드센스 광고 코드 삽입 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXX"
+         data-ad-slot="XXXXXX"
+         data-ad-format="auto"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
     function showMessage() {
@@ -99,7 +115,7 @@
             useCORS: true,
         }).then(canvas => {
         const link = document.createElement("a");
-        link.download = "사냥_거부기.png";
+        link.download = "dinosaur.png";
         link.href = canvas.toDataURL("image/png");
         link.click();
       });
